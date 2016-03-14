@@ -66,6 +66,30 @@ def list_servers(backend, socket='/var/run/haproxy.sock', objectify=False):
     return ha_conn.sendCmd(ha_cmd, objectify=objectify)
 
 
+def get_conn(name, backend, socket='/var/run/haproxy.sock', objectify=False):
+    '''
+    Get number of current sessions on backend server
+
+    name
+        haproxy backend server
+
+    backend
+        haproxy backend
+
+    socket
+        haproxy stats socket
+
+    CLI Example:
+
+    .. code-block:: bash
+
+        salt '*' haproxy.get_conn web1.example.com www
+    '''
+    ha_conn = _get_conn(socket)
+    ha_cmd = haproxy.cmds.getServerCurrSess(server=name, backend=backend)
+    return ha_conn.sendCmd(ha_cmd, objectify=objectify)
+
+
 def enable_server(name, backend, socket='/var/run/haproxy.sock'):
     '''
     Enable Server in haproxy
