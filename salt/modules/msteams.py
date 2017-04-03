@@ -53,13 +53,13 @@ def _get_hook_url():
 def post_card(message,
               hook_url=None,
               title=None,
-              theme_color=None):
+              themeColor=None):
     '''
     Send a message to an MS Teams channel.
     :param message:     The message to send to the MS Teams channel.
     :param hook_url:    The Teams webhook URL, if not specified in the configuration.
     :param title:       Optional title for the posted card
-    :param theme_color:  Optional hex color highlight for the posted card
+    :param themeColor:  Optional hex color highlight for the posted card
     :return:            Boolean if message was sent successfully.
     CLI Example:
     .. code-block:: bash
@@ -75,7 +75,7 @@ def post_card(message,
     payload = {
         "text": message,
         "title": title,
-        "theme_color": theme_color
+        "themeColor": themeColor
     }
 
     result = salt.utils.http.query(hook_url, method='POST', data=json.dumps(payload), status=True)
