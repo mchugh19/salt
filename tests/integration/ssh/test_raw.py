@@ -12,6 +12,7 @@ import salt.utils.platform
 
 import timeout_decorator
 
+
 @skipIf(salt.utils.platform.is_windows(), 'salt-ssh not available on Windows')
 class SSHRawTest(SSHCase):
     '''
