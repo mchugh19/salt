@@ -38,6 +38,7 @@ setuptools-scm
 strict_rfc3339
 supervisor==3.3.5; python_version < '3'
 timelib
+timeout_decorator
 toml
 vcert~=0.7.0
 virtualenv>=20.0.20
